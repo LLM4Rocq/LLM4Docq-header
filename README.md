@@ -1,5 +1,5 @@
 # LLM4Docq-header
-The goal of this repository is to work collaboratively on MathComp documentation for [LLM4Docq](https://github.com/LLM4Rocq/LLM4Docq).
+The goal of this repository is to work collaboratively on MathComp documentation using the [LLM4Docq](https://github.com/LLM4Rocq/LLM4Docq) pipeline.
 More precisely, LLM4Docq relies on leveraging external LLMs, and to maximize performance, it requires careful prompting.
 
 To avoid overflowing the LLM’s context and to improve results, we chunk the source code into contiguous pieces and ask the LLM to annotate them, given a context header that helps it understand each piece of code.
