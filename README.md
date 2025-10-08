@@ -22,7 +22,8 @@ Headers to be amended are located in the `headers` folder of the repository.
 Contributors should edit these files directly to correct, clarify, or enrich the generated context headers.
 The goal is to make them more accurate, coherent, and informative for the LLM.
 The guiding question is:
-“Given this header, could I understand almost any chunk (~100 lines) of the associated source file without more information?”
+
+"Given this header, could I understand almost any chunk (~100 lines) of the associated source file without more information?"
 
 ### Select 5 to 10 elements for annotation
 
