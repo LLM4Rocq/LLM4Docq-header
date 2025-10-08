@@ -4,6 +4,7 @@ More precisely, LLM4Docq relies on leveraging external LLMs, and to maximize per
 
 To avoid overflowing the LLM’s context and to improve results, we chunk the source code into contiguous pieces and ask the LLM to annotate them, given a context header that helps it understand each piece of code.
 Here, a context header is not part of the MathComp source code, it is an external description used in the prompting process to give the LLM the necessary background for understanding the file.
+
 In short, the LLM takes as input some general instructions (see the [prompt_template](prompt_template.txt)), a **context header**, and (in the next version thanks to this repository) some carefully **handcrafted examples** of well-chosen docstrings.
 
 The main task is to **audit these context headers**, which were first generated synthetically using state-of-the-art reasoning models, and to add **precise and context-aware examples** to the prompt.
