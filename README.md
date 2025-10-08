@@ -3,6 +3,7 @@ The goal of this repository is to work collaboratively on MathComp documentation
 More precisely, LLM4Docq relies on leveraging external LLMs, and to maximize performance, it requires careful prompting.
 
 To avoid overflowing the LLM’s context and to improve results, we chunk the source code into contiguous pieces and ask the LLM to annotate them, given a context header that helps it understand each piece of code.
+Here, a context header is not part of the MathComp source code, it is an external description used in the prompting process to give the LLM the necessary background for understanding the file.
 In short, the LLM takes as input some general instructions (see the [prompt_template](prompt_template.txt)), a **context header**, and (in the next version thanks to this repository) some carefully **handcrafted examples** of well-chosen docstrings.
 
 The main task is to **audit these context headers**, which were first generated synthetically using state-of-the-art reasoning models, and to add **precise and context-aware examples** to the prompt.
@@ -47,11 +48,11 @@ Each example should follow this structure:
 ```
 
 Try to follow these guidelines:
-1. Use natural language only. If possible, do not use any mathematical symbols (like <, ≤, =, etc.).  
-2. Write complete sentences. Each docstring must be at least one clear, grammatically correct sentence.  
-3. Be explicit. Spell out operations and relationships in plain English (e.g., "less than" instead of "<").  
-4. Be self-contained. The reader should understand the meaning of the declaration without seeing the code.  
-5. Be embedding-friendly. Do not use pronouns or external references like "this lemma" or "the following." Explicitly mention inputs and outputs.  
-6. Use high-level terms like natural number, matrix, or polynomial.
-7. Be consistent: if the element is a lemma, start the docstring with "This lemma states ..."; apply the same rule to all other kinds of elements.  
-8. Avoid referring to variable names when possible. For example, instead of writing "Defines the minimal polynomial of a matrix A as the monic polynomial of least degree that evaluates to the zero matrix when A is substituted for the variable,..." prefer "Defines the minimal polynomial of a matrix as the monic polynomial of least degree that evaluates to the zero matrix when substituted for the variable."
+1. **Use natural language only.** If possible, do not use any mathematical symbols (like <, ≤, =, etc.).  
+2. **Write complete sentences.** Each docstring must be at least one clear, grammatically correct sentence.  
+3. **Be explicit.** Spell out operations and relationships in plain English (e.g., "less than" instead of "<").  
+4. **Be self-contained.** The reader should understand the meaning of the declaration without seeing the code.  
+5. **Be embedding-friendly.** Do not use pronouns or external references like "this lemma" or "the following." Explicitly mention inputs and outputs.  
+6. **Use high-level terms** like natural number, matrix, or polynomial.
+7. **Be consistent.** If the element is a lemma, start the docstring with "This lemma states ..."; apply the same rule to all other kinds of elements.  
+8. **Avoid referring to variable names when possible.** For example, instead of writing "Defines the minimal polynomial of a matrix A as the monic polynomial of least degree that evaluates to the zero matrix when A is substituted for the variable,..." prefer "Defines the minimal polynomial of a matrix as the monic polynomial of least degree that evaluates to the zero matrix when substituted for the variable."
