@@ -1,0 +1,143 @@
+Here is a some context to understand the following Coq source file from the mathcomp library:
+
+{docstring}
+
+
+Here is a snippet of Coq source file from the mathcomp library:
+
+"{{source}}"
+
+I need you to help me docstrings for the following element(s) (and only these):
+
+{{missing}}
+
+To do it, write a json corresponding to a list of all docstring, in the format:
+
+[{{{{"name": "trunc", "docstring": "The function trunc returns the greatest natural number less than or equal to x when x is at least zero by using the constructive truncation proof; otherwise it returns zero."}}}}, ....
+
+
+### Guidelines for writing the docstrings
+
+#### General rules
+1. Use natural language only. Do not use any mathematical symbols (like <, ≤, =, etc.).  
+2. Write complete sentences. Each docstring must be at least one clear, grammatically correct sentence.  
+3. Be explicit. Spell out operations and relationships in plain English (e.g., “less than” instead of “<”).  
+4. Be self-contained. The reader should understand the meaning of the declaration without seeing the code.  
+5. Be embedding-friendly. Do not use pronouns or external references like “this lemma” or “the following.” Explicitly mention inputs and outputs.  
+6. Do not cite Coq identifiers or premises in the docstring.  
+7. State the general data category of every input and output in plain English. Use high-level terms like natural number, integer, boolean, list of integers, finite sequence, function, set, matrix, or polynomial. Avoid vague phrases such as “the first argument,” and do not mention library-specific type identifiers or constructor names.  
+8. Be consistent: if the element is a lemma, start the docstring with “This lemma states ...”; apply the same rule to all other kinds of elements.  
+9. Avoid referring to variable names when possible. For example, instead of writing “Defines the minimal polynomial of a matrix A as the monic polynomial of least degree that evaluates to the zero matrix when A is substituted for the variable,” prefer “Defines the minimal polynomial of a matrix as the monic polynomial of least degree that evaluates to the zero matrix when substituted for the variable.”  
+10. Be precise when rewriting names in the JSON: always include all special characters, punctuation, and formatting exactly as they appear. For example, do not simplify "A ^f" to A ^f; the name must be copied exactly as written in the list of elements provided. In case of conflict in the source file, use the one provided in the list.
+
+#### Specific rules by declaration kind
+
+- **Lemma / Theorem / Definition / Fixpoint / Function**  
+  → Write a direct, explicit explanation of what the function or statement asserts.  
+
+  Example:  
+  ```coq
+  Definition rVpoly v := \poly_(k < d) (if insub k is Some i then v 0 i else 0).
+  ```
+  ```json
+  [
+    {{{{
+      "name": "rVpoly",
+      "docstring": "This definition converts a row vector of ring elements into a univariate polynomial whose coefficients correspond to the vector entries in increasing degree order, treating missing degrees beyond the vector length as zero."
+    }}}}
+  ]
+  ```
+
+- **Record or Class (when the record/class itself appears in `missing`)**  
+  → Write a high-level summary describing the overall purpose of the structure. Do not detail the individual fields here.  
+
+- **Fields of a Record or Class (when a field name appears in `missing`)**  
+  → Write an elaborate description of what the field asserts or requires, mentioning the role of its inputs and outputs.  
+
+  Example:  
+  ```coq
+  HB.mixin Record isBilinear (R : nzRingType) (U U' : lmodType R) (V : zmodType)
+      (s : R -> V -> V) (s' : R -> V -> V) (f : U -> U' -> V) := {{{{
+    zmod_morphisml_subproof : forall u', zmod_morphism (f ^~ u') ;
+    zmod_morphismr_subproof : forall u, zmod_morphism (f u) ;
+    linearl_subproof : forall u', scalable_for s (f ^~ u') ;
+    linearr_subproof : forall u, scalable_for s' (f u)
+  }}}}.
+  ```
+  ```json
+  [
+    {{{{
+      "name": "isBilinear",
+      "docstring": "A record that describes when a function taking two module inputs over the same ring and returning an additive group value is bilinear."
+    }}}},
+    {{{{
+      "name": "zmod_morphisml_subproof",
+      "docstring": "A field requiring that for each fixed value of the second module input, the resulting map from the first module input to the additive group preserves zero and sums."
+    }}}},
+    {{{{
+      "name": "zmod_morphismr_subproof",
+      "docstring": "A field requiring that for each fixed value of the first module input, the resulting map from the second module input to the additive group preserves zero and sums."
+    }}}},
+    {{{{
+      "name": "linearl_subproof",
+      "docstring": "A field asserting that for each fixed value of the second module input, scaling the first module input by a ring element causes the output to scale in the additive group by the corresponding scalar action."
+    }}}},
+    {{{{
+      "name": "linearr_subproof",
+      "docstring": "A field asserting that for each fixed value of the first module input, scaling the second module input by a ring element causes the output to scale in the additive group by the corresponding scalar action."
+    }}}}
+  ]
+  ```
+
+- **Inductive or Coinductive (when the inductive type itself appears in `missing`)**  
+  → Provide a high-level explanation of the kind of objects or concepts represented.  
+
+- **Constructors of Inductive or Coinductive (when a constructor name appears in `missing`)**  
+  → Write a detailed description of what the constructor builds, including its arguments and the case it represents.  
+
+  Example:  
+  ```coq
+  Inductive Inatmul :=
+    | INatmul : Ione -> nat -> Inatmul
+    | IOpp : Inatmul -> Inatmul.
+  ```
+  ```json
+  [
+    {{{{
+      "name": "Inatmul",
+      "docstring": "An inductive representation of formal expressions combining a unit element, natural number multiplication by repeated addition, and additive inverse, used to represent ring-side scalar multiples and opposites in the term language."
+    }}}},
+    {{{{
+      "name": "INatmul",
+      "docstring": "A constructor that builds a formal expression representing the additive inverse of a given expression."
+    }}}},
+    {{{{
+      "name": "IOpp",
+      "docstring": "A constructor that builds a formal expression representing the multiplicative identity element in the ring term language."
+    }}}}
+  ]
+  ```
+
+- **Notation / Canonical / Instance / Factory**  
+  → Explain in plain English what notation or implicit mechanism is being introduced, and its purpose.  
+
+  Example:  
+  ```coq
+  Local Notation "x *+ n" := (natmul x n) : ring_scope.
+  ```
+  ```json
+  [
+    {{{{
+      "name": "x *+ n",
+      "docstring": "A notation taking an element of an additive group and a natural number and returning the sum of that element repeated that many times."
+    }}}}
+  ]
+  ```
+
+---
+
+Your final JSON must be contained in a JSON code block.
+
+Remember, you only have to do it for the following elements:
+
+{{missing}}
