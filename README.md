@@ -5,7 +5,7 @@ More precisely, LLM4Docq relies on leveraging external LLMs, and to maximize per
 To avoid overflowing the LLM’s context and to improve results, we chunk the source code into contiguous pieces and ask the LLM to annotate them, given a general context header that helps it understand each piece of code.
 In short, the LLM takes as input some general instructions (see the [prompt_template](prompt_template.txt)), a **context header**, and (in the next version thanks to this repository) some carefully **handcrafted examples** of well-chosen docstrings.
 
-The goal of this repository is to **audit these context headers**, which were first generated synthetically using state-of-the-art reasoning models, and to add **precise and context-aware examples** to the prompt.
+The main task is to **audit these context headers**, which were first generated synthetically using state-of-the-art reasoning models, and to add **precise and context-aware examples** to the prompt.
 More simply, we consider three tasks for each source file:
 
 - Audit an header
