@@ -52,6 +52,6 @@ Try to follow these guidelines:
 3. Be explicit. Spell out operations and relationships in plain English (e.g., "less than" instead of "<").  
 4. Be self-contained. The reader should understand the meaning of the declaration without seeing the code.  
 5. Be embedding-friendly. Do not use pronouns or external references like "this lemma" or "the following." Explicitly mention inputs and outputs.  
-6. Use high-level terms like natural number, integer, boolean, list of integers, finite sequence, function, set, matrix, or polynomial.
+6. Use high-level terms like natural number, matrix, or polynomial.
 7. Be consistent: if the element is a lemma, start the docstring with "This lemma states ..."; apply the same rule to all other kinds of elements.  
 8. Avoid referring to variable names when possible. For example, instead of writing "Defines the minimal polynomial of a matrix A as the monic polynomial of least degree that evaluates to the zero matrix when A is substituted for the variable,..." prefer "Defines the minimal polynomial of a matrix as the monic polynomial of least degree that evaluates to the zero matrix when substituted for the variable."
