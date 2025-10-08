@@ -2,7 +2,7 @@
 The goal of this repository is to work collaboratively on MathComp documentation for [LLM4Docq](https://github.com/LLM4Rocq/LLM4Docq).
 More precisely, LLM4Docq relies on leveraging external LLMs, and to maximize performance, it requires careful prompting.
 
-To avoid overflowing the LLM’s context and to improve results, we chunk the source code into contiguous pieces and ask the LLM to annotate them, given a general context header that helps it understand each piece of code.
+To avoid overflowing the LLM’s context and to improve results, we chunk the source code into contiguous pieces and ask the LLM to annotate them, given a context header that helps it understand each piece of code.
 In short, the LLM takes as input some general instructions (see the [prompt_template](prompt_template.txt)), a **context header**, and (in the next version thanks to this repository) some carefully **handcrafted examples** of well-chosen docstrings.
 
 The main task is to **audit these context headers**, which were first generated synthetically using state-of-the-art reasoning models, and to add **precise and context-aware examples** to the prompt.
