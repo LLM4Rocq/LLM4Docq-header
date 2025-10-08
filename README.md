@@ -14,7 +14,7 @@ More simply, we consider three tasks for each source file:
 
 We are working with [this fork](https://github.com/theostos/math-comp/blob/master/algebra/finalg.v) of MathComp.
 
-To balance the work, please indicate on the following [link](https://notes.inria.fr/dLNK-EW_S8SJdvc0u2YHqA#) what you are working on, be careful not to duplicate someone else's work
+**To balance the work, please indicate on the following [link](https://notes.inria.fr/dLNK-EW_S8SJdvc0u2YHqA#) what you are working on, be careful not to duplicate someone else's work**
 
 ### Audit a header
 
