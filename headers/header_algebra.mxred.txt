@@ -37,13 +37,10 @@ Mathematical Objects and Their Representation
 
 - **Polynomial and Eigenspace Machinery**:
    - The minimal polynomial (`mxminpoly f`) of a matrix and its properties under conjugation.
-   - Eigenspaces, eigenvalues (`eigenspace f a`), and associated decomposition of the space, all implemented via structured subspaces of matrices.
+   - Eigenspaces, eigenvalues (`eigenspace f a`), and associated decomposition of the space.
 
 - **Simultaneous Diagonalization, Commutativity**:
-   - The file proves that a family of matrices is simultaneously diagonalizable if and only if each matrix is diagonalizable and the family is pairwise commutative (`comm_mx f g`).
-
-- **Reflection Lemmas**:
-   - Essential equivalences are expressed as `reflect` lemmas, bridging Boolean predicates and propositional statements.
+   - The file proves that a family of matrices is simultaneously diagonalizable if and only if each matrix is diagonalizable and the elements of the family commute pairwise (`comm_mx f g`).
 
 Key Conventions and Notations
 =============================
@@ -66,6 +63,9 @@ Key Conventions and Notations
 
 - **Sectioning Pattern**:
     - The file is divided into logical sections (`ConjMx`, `Similarity`, `Diag`) to structure the development from the most general conjugation properties to specific diagonalization criteria and main theorems.
+
+- **Reflection Lemmas**:
+   - Essential equivalences are expressed as `reflect` lemmas, bridging Boolean predicates and propositional statements.
 
 Summary of Main Results
 =======================
