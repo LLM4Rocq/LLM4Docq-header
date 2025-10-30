@@ -19,13 +19,13 @@ Mathematical Objects and Their Representation
 - **Restriction of Matrices (`restrictmx`)**: For a matrix `V`, `restrictmx V f` denotes conjugation by the canonical basis-extracting matrix `row_base V`, i.e., a "restriction" of the linear map `f` to the image of `V`.
 
 - **Similarity and Similarity Classes**:
-   - The predicate `similar P A B` indicates that `A` is similar to `B` (i.e., `conjmx P A = B`).
+   - The predicate `similar P A B` indicates that `A` is similar to `B` via conjugation by `P` (i.e., `conjmx P A = B`).
 
    - More generally, "Similarity in" and "to" predicates (`similar_in`, `similar_to` and  `similar_in_to`) parameterize the allowed base change matrix and/or the similarity class.
 
    - For instance predicate `similar_to P A C` holds if the conjugate `conjmx P A` belongs to `C`, expressing that the matrix `A` is similar to an element of `C` via the base change matrix `P`. This definition is mostly used as a technical device for defining diagonalizability, etc.
 
-   - Similarly, predicate  `similar_in D A B` expresses that `B` is similar to `A` via a change of base which belongs to `C`. This definition is also mostly used as a technical device for defining co-diagonalizability, etc.
+   - Similarly, predicate  `similar_in D A B` expresses that `B` is similar to `A` via a change of base which belongs to `D`. This definition is also mostly used as a technical device for defining co-diagonalizability, etc.
 
    - More specifically, `similar_diag P A` asserts that `A` is similar to a diagonal matrix via `P`.
    
@@ -78,5 +78,5 @@ Summary of Main Results
 
 Intended Use and Scope
 ======================
-This file serves as a foundational module for anyone formally reasoning about linear operators, spectral theory, and canonical forms of matrices in the Roocq proof assistant. Its design encourages code and proof reuse in larger developments concerning the structure of linear transformations. All terminology, notations, and conventions used here are consistently used in the rest of the Mathematical Components library.
+This file serves as a foundational module for anyone formally reasoning about linear operators, spectral theory, and canonical forms of matrices in the Rocq proof assistant. Its design encourages code and proof reuse in larger developments concerning the structure of linear transformations. All terminology, notations, and conventions used here are consistently used in the rest of the Mathematical Components library.
 
