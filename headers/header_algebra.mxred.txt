@@ -5,7 +5,10 @@ Overview and Purpose
 ====================
 This Coq source file formalizes fundamental theorems in linear algebra in finite dimension, that is, the theory of matrices over fields. Its primary focus is on the concepts of matrix similarity, conjugation, diagonalizability, and simultaneous diagonalizability (codiagonalizability), also called endomorphism reduction. The file develops a systematic theory of changing matrix representations via base change (conjugation), defines important transformations such as diagonalization and triangularization, and proves key equivalences characterizing when a matrix (or family of matrices) is diagonalizable—both individually and simultaneously. It also relates these properties to eigenspace decompositions and minimal polynomial factorizations.
 
-The results and notions established here are building blocks for advanced topics in linear algebra, representation theory, and related areas where expressing linear operators in simple forms (diagonal or triangular) is important for computation and theoretical analysis.
+Intended Use and Scope
+======================
+This file introduces various canonical forms of matrices and may be useful when working with linear operators, spectral theory, representation theory, etc. in the Rocq proof assistant. All terminology, notations, and conventions used here are consistently used in the rest of the Mathematical Components library as well.
+
 
 Mathematical Objects and Their Representation
 =============================================
@@ -76,7 +79,4 @@ Summary of Main Results
 - **Triangularization**: The file establishes the analogous results to that of diagonalization that hold for triangularization.
 - **Effectiveness**: The file not only proves existence but provides explicit constructions (e.g., of base change matrices, eigenvalue lists).
 
-Intended Use and Scope
-======================
-This file serves as a foundational module for anyone formally reasoning about linear operators, spectral theory, and canonical forms of matrices in the Rocq proof assistant. Its design encourages code and proof reuse in larger developments concerning the structure of linear transformations. All terminology, notations, and conventions used here are consistently used in the rest of the Mathematical Components library.
 
